@@ -6,6 +6,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Import;
+import org.springframework.context.annotation.Profile;
 
 import javax.servlet.Filter;
 import javax.sql.DataSource;
@@ -13,10 +14,10 @@ import javax.sql.DataSource;
 @Configuration
 public class AppConfig extends WebMvcAutoConfiguration {
 
-    @Bean
-    @ConfigurationProperties(prefix="my.datasource")
-    public DataSource myDataSource() {
-        return DataSourceBuilder.create().build();
-    }
+//    @Bean
+//    @ConfigurationProperties(prefix="my.datasource")
+//    public DataSource myDataSource() {
+//        return DataSourceBuilder.create().build();
+//    }
 
 }
