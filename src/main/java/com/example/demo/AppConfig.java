@@ -18,10 +18,10 @@ public class AppConfig extends WebMvcAutoConfiguration {
 //    @ConfigurationProperties(prefix="my.datasource")
 //    @Profile("!test")
 //    public DataSource myDataSource() {
+//        //schema controlled by spring.jpa.properties.hibernate.default_schema=xxx
 //        return DataSourceBuilder.create().build();
 //    }
     @Bean
-    @ConfigurationProperties(prefix="my.datasource")
     @Profile("!test")
     public DataSource myDataSource() {
         DriverManagerDataSource source = new DriverManagerDataSource();
@@ -30,7 +30,6 @@ public class AppConfig extends WebMvcAutoConfiguration {
         source.setUsername("student");
         source.setPassword("wsiz#1234");
         source.setSchema("xxx");
-
         return source;
     }
 }

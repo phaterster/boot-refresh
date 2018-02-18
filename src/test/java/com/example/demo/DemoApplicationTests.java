@@ -18,8 +18,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import javax.sql.DataSource;
 import java.util.Arrays;
 
-//@RunWith(SpringRunner.class)
-@RunWith(SpringJUnit4ClassRunner.class)
+@RunWith(SpringRunner.class)
 @SpringBootTest(classes = {DemoApplication.class, TestConfig.class})
 @Slf4j
 @Sql({"/bla.sql"})
