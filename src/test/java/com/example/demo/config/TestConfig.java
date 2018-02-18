@@ -22,14 +22,13 @@ public class TestConfig {
 
     @Bean
     @Profile("test")
-    public DataSource myDataSource() {
-        DriverManagerDataSource dataSource = new DriverManagerDataSource();
-        dataSource.setDriverClassName("org.h2.Driver");
-        dataSource.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
-        dataSource.setUsername("sa");
-        dataSource.setPassword("sa");
-
-        return dataSource;
+    public DataSource testDataSource() {
+        DriverManagerDataSource source = new DriverManagerDataSource();
+        source.setDriverClassName("org.h2.Driver");
+        source.setUrl("jdbc:h2:mem:db;DB_CLOSE_DELAY=-1");
+        source.setUsername("sa");
+        source.setPassword("sa");
+        return source;
     }
 
 }
