@@ -1,6 +1,7 @@
 package com.example.demo;
 
 import com.example.demo.config.TestConfig;
+import com.example.demo.model.Shipper;
 import com.example.demo.service.ShipperRepo;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Test;
@@ -17,6 +18,9 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import javax.sql.DataSource;
 import java.util.Arrays;
+import java.util.Optional;
+
+import static org.assertj.core.api.AssertionsForClassTypes.assertThat;
 
 @RunWith(SpringRunner.class)
 @SpringBootTest(classes = {DemoApplication.class, TestConfig.class})
@@ -40,9 +44,15 @@ public class DemoApplicationTests {
 	    log.info("Datasource: [{}] ", testDataSource.getConnection().getClientInfo());
 
         log.info("Profiles: {}", Arrays.toString(environment.getActiveProfiles()));
-
         repo.findAll().forEach(System.out::println);
-
 	}
+
+    @Test
+    public void findById_finds() throws Exception {
+        Optional<Shipper> s = repo.findByShippername("DHL");
+
+        assertThat(s.isPresent()).isTrue();
+    }
+
 
 }
